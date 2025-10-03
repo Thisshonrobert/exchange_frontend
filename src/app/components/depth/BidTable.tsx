@@ -1,16 +1,13 @@
-import { useEffect } from "react";
-
-
-
+export let maxBidTotal:number = 0;
 export const BidTable = ({ bids }: {bids: [string, string][]}) => {
    let currentTotal = 0;
    const relevantBids = bids.slice(0,15);
    const bidsWithTotal: [string, string, number][] = relevantBids.map(([price, quantity]) => [price, quantity, currentTotal += Number(quantity)]);
 
-   const maxTotal = relevantBids.reduce((acc, [_, quantity]) => acc + Number(quantity),0 );
+   maxBidTotal = relevantBids.reduce((acc, [_, quantity]) => acc + Number(quantity),0 );
 
     return <div>
-        {bidsWithTotal?.map(([price, quantity, total]) => <Bid maxTotal={maxTotal} total={total} key={price} price={price} quantity={quantity} />)}
+        {bidsWithTotal?.map(([price, quantity, total]) => <Bid maxTotal={maxBidTotal} total={total} key={price} price={price} quantity={quantity} />)}
     </div>
 }
 

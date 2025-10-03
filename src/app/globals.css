@@ -9,6 +9,8 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   /* Custom project colors mapped to utilities like text-*, bg-*, border-* */
+  --color-greenbar:rgba(1, 167, 129, 0.325);
+  --color-redbar:rgba(228, 75, 68, 0.325);
   --color-greenBackgroundTransparent: rgba(0,194,120,.12);
   --color-redBackgroundTransparent: rgba(234,56,59,.12);
   --color-baseBackgroundL2: rgb(32,33,39);

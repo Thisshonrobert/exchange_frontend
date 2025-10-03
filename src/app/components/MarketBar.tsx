@@ -9,8 +9,12 @@ export const MarketBar = ({market}: {market: string}) => {
     const [ticker, setTicker] = useState<Ticker | null>(null);
 
     useEffect(() => {
+        if (!market) {
+            return;
+        }
         getTicker(market).then(setTicker);
         SignalingManager.getInstance().registerCallback('ticker',(data:Partial<Ticker>)=>
+            //callback function to set the ticker
         setTicker(prevTicker => ({
             firstPrice: data?.firstPrice ?? prevTicker?.firstPrice ?? '',
             high: data?.high ?? prevTicker?.high ?? '',
@@ -76,7 +80,7 @@ function Ticker({market}: {market: string}) {
         <div className="flex items-center justify-between flex-row cursor-pointer rounded-lg p-3 hover:opacity-80">
             <div className="flex items-center flex-row gap-2 text-baseTextHighEmphasis undefined">
                 <div className="flex flex-row relative">
-                    <p className="font-medium text-sm undefined">{market.replace("_", " / ")}</p>
+                    <p className="font-medium text-sm undefined">{(market ?? "").replace("_", " / ")}</p>
                 </div>
             </div>
         </div>

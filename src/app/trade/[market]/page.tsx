@@ -12,7 +12,7 @@ export default function Page() {
     return <div className="flex flex-row flex-1">
         <div className="flex flex-col flex-1">
             <MarketBar market={market as string} />
-            <div className="flex flex-row h-[920px] border-y border-slate-800">
+            <div className="flex flex-row h-[1000px] border-y border-slate-800">
                 <div className="flex flex-col flex-1">
                     <TradeView market={market as string} />
                 </div>

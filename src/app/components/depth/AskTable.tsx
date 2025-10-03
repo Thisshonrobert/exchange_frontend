@@ -1,6 +1,4 @@
-import { useEffect } from "react";
-
-
+export let maxAskTotal:number = 0;
 
 export const AskTable = ({ asks }: {asks: [string, string][]}) => {
    let currentTotal = 0;
@@ -11,11 +9,11 @@ export const AskTable = ({ asks }: {asks: [string, string][]}) => {
          const [price, quantity] = relevantAsks[i];
          AskWithTotal.push([price, quantity, currentTotal+=Number(quantity)]);
    }
-   const maxTotal = relevantAsks.reduce((acc, [_, quantity]) => acc + Number(quantity),0 );
+   maxAskTotal = relevantAsks.reduce((acc, [_, quantity]) => acc + Number(quantity),0 );
    AskWithTotal.reverse();
 
     return <div>
-        {AskWithTotal?.map(([price, quantity, total]) => <Ask maxTotal={maxTotal} total={total} key={price} price={price} quantity={quantity} />)}
+        {AskWithTotal?.map(([price, quantity, total]) => <Ask maxTotal={maxAskTotal} total={total} key={price} price={price} quantity={quantity} />)}
     </div>
 }
 

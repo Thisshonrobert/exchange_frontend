@@ -13,6 +13,8 @@ const config: Config = {
   	extend: {
   		colors: {
   			greenBackgroundTransparent: 'rgba(0,194,120,.12)',
+			redbar:'rgba(1, 167, 129, 0.325)',
+			greenbar:'rgba(228, 75, 68, 0.325)',
   			redBackgroundTransparent: 'rgba(234,56,59,.12)',
   			baseBackgroundL2: 'rgb(32,33,39)',
   			baseBackgroundL3: 'rgb(56 58 69)',
